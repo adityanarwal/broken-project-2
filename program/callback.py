@@ -31,15 +31,15 @@ from config import (
 )
 
 
-@Client.on_callback_query(filters.regex("home_start"))
+@Client.on_callback_query(filters.regex("bot_start"))
 @check_blacklist()
 async def start_set(_, query: CallbackQuery):
-    await query.answer("home start")
+    await query.answer("bot start")
     await query.edit_message_text(
-        f"""Hi [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) 👋🏻\n
-💭 [{me_bot.first_name}](https://t.me/{me_bot.username}) is a bot to play music and video in groups, through the new Telegram video chats.
-🕵🏻 Check out all the **Bot's commands** and how they work by clicking on the » 📚 **Commands** button!
-🧑🏻‍💻 To know how to use this bot, please click on the » ❓ **Basic Guide** button!
+        f"""Welcome - {message.from_user.mention()} 👋
+This is the Broken music bot, a bot for playing high quality and unbreakable music in your groups voice chat.
+Just add me to your group and make a admin with needed admin permission to perform a right actions !!
+Use the given buttons for more ❗️
 """,
         reply_markup=InlineKeyboardMarkup(
             [

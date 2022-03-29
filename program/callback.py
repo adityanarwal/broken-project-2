@@ -77,26 +77,76 @@ async def quick_set(_, query: CallbackQuery):
     )
 
 
-@Client.on_callback_query(filters.regex("user_guide"))
+@Client.on_callback_query(filters.regex("basic_guide"))
 @check_blacklist()
 async def guide_set(_, query: CallbackQuery):
-    await query.answer("user guide")
+    await query.answer("basic guide")
     await query.edit_message_text(
-        f"""❓ How to use this Bot ?, read the Guide below !
-1.) First, add this bot to your Group.
-2.) Then, promote this bot as administrator on the Group also give all permissions except Anonymous admin.
-3.) After promoting this bot, type /reload in Group to update the admin data.
-3.) Invite @{me_user.username} to your group or type /userbotjoin to invite her, unfortunately the userbot will joined by itself when you type `/play (song name)` or `/vplay (song name)`.
-4.) Turn on/Start the video chat first before start to play video/music.
-`- END, EVERYTHING HAS BEEN SETUP -`
-📌 If the userbot not joined to video chat, make sure if the video chat already turned on and the userbot in the chat.
-💡 If you have a follow-up questions about this bot, you can tell it on my support chat here: @{GROUP_SUPPORT}.""",
+        f"""**⚠️ Read The Basic Guide Carefully !!
+
+
+» First add this bot in your group
+
+» Make a bot admin
+
+» Give needed admin permission
+
+» Type /reload in your group
+
+» Start your groups voice chat
+
+» Now play your song and enjoy !!**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("» Quick use Guide «", callback_data="quick_use")
+                    InlineKeyboardButton("Common Error❗", callback_data="bot_error")
                 ],[
-                    InlineKeyboardButton("🔙 Go Back", callback_data="home_start")
+                    InlineKeyboardButton("🔙 Back Home", callback_data="bot_start")
+                ],
+            ]
+        ),
+    )
+
+
+@Client.on_callback_query(filters.regex("bot_error"))
+@check_blacklist()
+async def error_set(_, query: CallbackQuery):
+    await query.answer("Common Error")
+    await query.edit_message_text(
+        f"""**Mostly Faced Errors ⚠️
+
+There wiil be the main error about to music assistant. If you are facing any type of error in your group then that time first make sure @BrokenxMusicAssistant is available in your group. If not then add it manually and before that make sure also it is not banned in ur chat.
+
+Thanks !!**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("Owner Contact❗️", callback_data="bot_owner")
+                ],[
+                    InlineKeyboardButton("🔙 Go Back", callback_data="basic_guide")
+                ],
+            ]
+        ),
+    )
+
+
+@Client.on_callback_query(filters.regex("bot_owner"))
+@check_blacklist()
+async def owner_set(_, query: CallbackQuery):
+    await query.answer("Developer Contact")
+    await query.edit_message_text(
+        f"""**• This bot is developed by this noob 
+- @Its_romeoo
+
+• Powered by
+- @TeamBrokenProjects
+- @TeamBrokenSupport
+
+Note : Contact developer only that time if you have really need a help or facing any type of issues. Don't try to waste our and your time by asking useless queries !!**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("🔙 Back Home", callback_data="bot_start")
                 ],
             ]
         ),

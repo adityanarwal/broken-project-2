@@ -38,12 +38,8 @@ from config import (
 @check_blacklist()
 async def dm_set(_, query: CallbackQuery):
     await query.answer("Start")
-    await query.edit_message_media(
-        media=f"https://telegra.ph/file/50c77a56c2489872836dc.jpg",
-        caption=f"""**Welcome - {message.from_user.mention()} 👋
-This is the Broken music bot, a bot for playing high quality and unbreakable music in your groups voice chat.
-Just add me to your group and make a admin with needed admin permission to perform a right actions !!
-Use the given buttons for more ❗️**""",
+    await query.edit_message_media(chat_id=update.callback_query.message.chat_id,
+                                message_id=update.callback_query.message.message_id, media=InputMediaPhoto(media=image)),
         reply_markup=InlineKeyboardMarkup(
             [
                 [

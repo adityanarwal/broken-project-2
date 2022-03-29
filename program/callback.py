@@ -1,3 +1,65 @@
+"""
+Video + Music Stream Telegram Bot
+Copyright (c) 2022-present levina=lab <https://github.com/levina-lab>
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/licenses.html>
+"""
+
+
+from driver.core import me_bot, me_user
+from driver.queues import QUEUE
+from driver.decorators import check_blacklist
+from program.utils.inline import menu_markup, stream_markup
+
+from pyrogram import Client, filters
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
+from config import (
+    BOT_USERNAME,
+    GROUP_SUPPORT,
+    OWNER_USERNAME,
+    UPDATES_CHANNEL,
+    SUDO_USERS,
+    OWNER_ID,
+)
+
+
+@Client.on_callback_query(filters.regex("home_start"))
+@check_blacklist()
+async def start_set(_, query: CallbackQuery):
+    await query.answer("home start")
+    await query.edit_message_text(
+        f"""Hi [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) 👋🏻\n
+💭 [{me_bot.first_name}](https://t.me/{me_bot.username}) is a bot to play music and video in groups, through the new Telegram video chats.
+🕵🏻 Check out all the **Bot's commands** and how they work by clicking on the » 📚 **Commands** button!
+🧑🏻‍💻 To know how to use this bot, please click on the » ❓ **Basic Guide** button!
+""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("➕ Add me to a Group ➕", url=f"https://t.me/{me_bot.username}?startgroup=true")
+                ],[
+                    InlineKeyboardButton("❓ Basic Guide", callback_data="user_guide")
+                ],[
+                    InlineKeyboardButton("📚 Commands", callback_data="command_list"),
+                    InlineKeyboardButton("❤️ Donate", url=f"https://t.me/{OWNER_USERNAME}")
+                ],[
+                    InlineKeyboardButton("👥 Support Group", url=f"https://t.me/{GROUP_SUPPORT}"),
+                    InlineKeyboardButton("📣 Support Channel", url=f"https://t.me/{UPDATES_CHANNEL}")
+                ],[
+                    InlineKeyboardButton("🌐 Source Code", url="https://github.com/levina-lab/video-stream")
+                ],
+            ]
+        ),
+        disable_web_page_preview=True,
+    )
 
 
 @Client.on_callback_query(filters.regex("quick_use"))

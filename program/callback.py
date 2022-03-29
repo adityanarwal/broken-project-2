@@ -37,8 +37,11 @@ async def start_set(_, query: CallbackQuery):
     await query.answer("bot start")
     await query.edit_message_text(
         f"""Welcome - {message.from_user.mention()} 👋
+
 This is the Broken music bot, a bot for playing high quality and unbreakable music in your groups voice chat.
+
 Just add me to your group and make a admin with needed admin permission to perform a right actions !!
+
 Use the given buttons for more ❗️
 """,
         reply_markup=InlineKeyboardMarkup(

@@ -82,6 +82,28 @@ Thanks !!**""",
     )
 
 
+@Client.on_callback_query(filters.regex("bot_make"))
+@check_blacklist()
+async def make_set(_, query: CallbackQuery):
+    await query.answer("Source Code")
+    await query.edit_message_text(
+        f"""**Tutorial soon at : @TeamBrokenProjects
+
+The Tutorial video about to making your own bot like this will be soon available at @TeamBrokenSupport. Also source code and all information about making bot published soon. Stay connected with us at our update channel.
+
+Thanks !!**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("Owner Contact❗️", callback_data="bot_owner")
+                ],[
+                    InlineKeyboardButton("🔙 Back Home", callback_data="bot_start")
+                ],
+            ]
+        ),
+    )
+
+
 @Client.on_callback_query(filters.regex("basic_guide"))
 @check_blacklist()
 async def guide_set(_, query: CallbackQuery):
@@ -164,20 +186,16 @@ async def commands_set(_, query: CallbackQuery):
     user_id = query.from_user.id
     await query.answer("commands menu")
     await query.edit_message_text(
-        f"""✨ **Hello [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**
-» Check out the menu below to read the module information & see the list of available Commands !
-All commands can be used with (`! / .`) handler""",
+        f"""**Check out the menu below to read the module information & see the list of available Commands !!**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("👮🏻‍♀️ Admins Commands", callback_data="admin_command"),
+                    InlineKeyboardButton("Voice Chat❓", callback_data="user_command"),
+                    InlineKeyboardButton("Controls❗️", callback_data="admin_command"),
                 ],[
-                    InlineKeyboardButton("👩🏻‍💼 Users Commands", callback_data="user_command"),
+                    InlineKeyboardButton("Extra 🕹", callback_data="extra_command"),
                 ],[
-                    InlineKeyboardButton("Sudo Commands", callback_data="sudo_command"),
-                    InlineKeyboardButton("Owner Commands", callback_data="owner_command"),
-                ],[
-                    InlineKeyboardButton("🔙 Go Back", callback_data="home_start")
+                    InlineKeyboardButton("🔙 Back Home", callback_data="bot_start")
                 ],
             ]
         ),
@@ -187,7 +205,7 @@ All commands can be used with (`! / .`) handler""",
 @Client.on_callback_query(filters.regex("user_command"))
 @check_blacklist()
 async def user_set(_, query: CallbackQuery):
-    await query.answer("basic commands")
+    await query.answer("music commands")
     await query.edit_message_text(
         f"""✏️ Command list for all user.
 » /play (song name/youtube link) - play the music from youtube
@@ -226,6 +244,30 @@ async def admin_set(_, query: CallbackQuery):
 » /userbotleave - order userbot to leave from group
 » /startvc - start/restart the group call
 » /stopvc - stop/discard the group call""",
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
+        ),
+    )
+
+
+@Client.on_callback_query(filters.regex("extra_command"))
+@check_blacklist()
+async def extra_set(_, query: CallbackQuery):
+    await query.answer("extra commands")
+    await query.edit_message_text(
+        f"""✏️ Command list for all user.
+» /play (song name/youtube link) - play the music from youtube
+» /stream (m3u8/youtube live link) - play youtube/m3u8 live stream music
+» /vplay (video name/youtube link) - play the video from youtube
+» /vstream (m3u8/youtube live link) - play youtube/m3u8 live stream video
+» /playlist - view the queue list of songs and current playing song
+» /lyric (query) - search for song lyrics based on the name of the song
+» /video (query) - download video from youtube
+» /song (query) - download song from youtube
+» /search (query) - search for the youtube video link
+» /ping - show the bot ping status
+» /uptime - show the bot uptime status
+» /alive - show the bot alive info (in Group only)""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
         ),

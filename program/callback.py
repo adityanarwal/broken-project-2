@@ -250,8 +250,6 @@ async def extra_set(_, query: CallbackQuery):
 » /sysinfo - show the system information
 » /repo - Get The Bot Repo !!
 » /alive - show the bot alive info (in Group only)
-» /info - Get Janam Kundli Of the user in Group
-» /telegraph - Generate the Telegraph link of the replied media
 » /speedtest - run the bot server speedtest
 » /search (query) - search for the youtube video link
 » /ping - show the bot ping status

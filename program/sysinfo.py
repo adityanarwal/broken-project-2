@@ -37,7 +37,6 @@ from pyrogram.types import Message
 
 
 @Client.on_message(command(["sysinfo", f"sysinfo@{BOT_USERNAME}"]) & ~filters.edited)
-@sudo_users_only
 async def fetch_system_information(client, message):
     splatform = platform.system()
     platform_release = platform.release()
@@ -57,7 +56,7 @@ async def fetch_system_information(client, message):
     psutil.disk_io_counters()
     disk = f"{humanbytes(du.used)} / {humanbytes(du.total)} " f"({du.percent}%)"
     cpu_len = len(psutil.Process().cpu_affinity())
-    somsg = f"""🖥 **System Information**
+    somsg = f"""⚠️ **Bot System Information**
     
 **PlatForm :** `{splatform}`
 **PlatForm - Release :** `{platform_release}`

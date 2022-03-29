@@ -48,7 +48,7 @@ Use the given buttons for more ❗️
             [
                 [
                     InlineKeyboardButton("Commands❓", callback_data="command_list"),
-                    InlineKeyboardButton("About❕", callback_data=" ")
+                    InlineKeyboardButton("About❕", callback_data="bot_about")
                 ],[
                     InlineKeyboardButton("Basic Guide❔", callback_data="basic_guide")
                 ],[

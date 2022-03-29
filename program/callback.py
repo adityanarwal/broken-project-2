@@ -50,7 +50,7 @@ Use the given buttons for more ❗️
                     InlineKeyboardButton("Commands❓", callback_data="command_list"),
                     InlineKeyboardButton("About❕", callback_data=" ")
                 ],[
-                    InlineKeyboardButton("Basic Guide❔", callback_data=" ")
+                    InlineKeyboardButton("Basic Guide❔", callback_data="basic_guide")
                 ],[
                     InlineKeyboardButton("✚ Add me to your Group ✚", url=f"https://t.me/{me_bot.username}?startgroup=true")
                 ],

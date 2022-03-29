@@ -207,19 +207,7 @@ async def commands_set(_, query: CallbackQuery):
 async def user_set(_, query: CallbackQuery):
     await query.answer("music commands")
     await query.edit_message_text(
-        f"""✏️ Command list for all user.
-» /play (song name/youtube link) - play the music from youtube
-» /stream (m3u8/youtube live link) - play youtube/m3u8 live stream music
-» /vplay (video name/youtube link) - play the video from youtube
-» /vstream (m3u8/youtube live link) - play youtube/m3u8 live stream video
-» /playlist - view the queue list of songs and current playing song
-» /lyric (query) - search for song lyrics based on the name of the song
-» /video (query) - download video from youtube
-» /song (query) - download song from youtube
-» /search (query) - search for the youtube video link
-» /ping - show the bot ping status
-» /uptime - show the bot uptime status
-» /alive - show the bot alive info (in Group only)""",
+        f""" """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
         ),
@@ -231,19 +219,7 @@ async def user_set(_, query: CallbackQuery):
 async def admin_set(_, query: CallbackQuery):
     await query.answer("admin commands")
     await query.edit_message_text(
-        f"""✏️ Command list for group admin.
-» /pause - pause the current track being played
-» /resume - play the previously paused track
-» /skip - goes to the next track
-» /stop - stop playback of the track and clears the queue
-» /vmute - mute the streamer userbot on group call
-» /vunmute - unmute the streamer userbot on group call
-» /volume `1-200` - adjust the volume of music (userbot must be admin)
-» /reload - reload bot and refresh the admin data
-» /userbotjoin - invite the userbot to join group
-» /userbotleave - order userbot to leave from group
-» /startvc - start/restart the group call
-» /stopvc - stop/discard the group call""",
+        f""" """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
         ),
@@ -255,19 +231,7 @@ async def admin_set(_, query: CallbackQuery):
 async def extra_set(_, query: CallbackQuery):
     await query.answer("extra commands")
     await query.edit_message_text(
-        f"""✏️ Command list for all user.
-» /play (song name/youtube link) - play the music from youtube
-» /stream (m3u8/youtube live link) - play youtube/m3u8 live stream music
-» /vplay (video name/youtube link) - play the video from youtube
-» /vstream (m3u8/youtube live link) - play youtube/m3u8 live stream video
-» /playlist - view the queue list of songs and current playing song
-» /lyric (query) - search for song lyrics based on the name of the song
-» /video (query) - download video from youtube
-» /song (query) - download song from youtube
-» /search (query) - search for the youtube video link
-» /ping - show the bot ping status
-» /uptime - show the bot uptime status
-» /alive - show the bot alive info (in Group only)""",
+        f""" """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
         ),

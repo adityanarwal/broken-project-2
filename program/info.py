@@ -7,9 +7,8 @@ from datetime import datetime
 from pyrogram import Client, filters
 from pyrogram.types import Message, User
 from pyrogram.errors import UserNotParticipant
-from pyrobot import COMMAND_HAND_LER
-from pyrobot.helper_functions.extract_user import extract_user
-from pyrobot.helper_functions.cust_p_filters import f_onw_fliter
+import COMMAND_HAND_LER
+import extract_user
 
 
 @Client.on_message(filters.command(["whois", "info"], COMMAND_HAND_LER)  & ~filters.edited)

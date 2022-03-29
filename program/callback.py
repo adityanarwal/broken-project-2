@@ -207,7 +207,15 @@ async def commands_set(_, query: CallbackQuery):
 async def user_set(_, query: CallbackQuery):
     await query.answer("music commands")
     await query.edit_message_text(
-        f""" """,
+        f"""⚠️ Voice Chat Commands.
+» /play (song name/youtube link) - play the music from youtube
+» /vplay (video name/youtube link) - play the video from youtube
+» /stream (m3u8/youtube live link) - play youtube/m3u8 live stream music
+» /vstream (youtube live link) - play youtube/m3u8 live stream video
+» /playlist - view the queue list of songs and current playing song
+» /lyric (query) - search for song lyrics based on the name of the song
+» /song (query) - download song from YouTube
+» /video (query) - download video from YouTube""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
         ),
@@ -219,7 +227,15 @@ async def user_set(_, query: CallbackQuery):
 async def admin_set(_, query: CallbackQuery):
     await query.answer("admin commands")
     await query.edit_message_text(
-        f""" """,
+        f"""⚠️ Only Group admins can use this commands.
+» /pause - pause the current track being played
+» /resume - play the previously paused track
+» /skip - goes to the next track
+» /stop - stop playback of the track and clears the queue
+» /volume `1-200` - adjust the volume of music (userbot must be admin)
+» /refresh - refresh the bot server and refresh the admin data
+» /userbotjoin - invite the userbot to join group
+» /userbotleave - order userbot to leave from group""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
         ),
@@ -231,7 +247,16 @@ async def admin_set(_, query: CallbackQuery):
 async def extra_set(_, query: CallbackQuery):
     await query.answer("extra commands")
     await query.edit_message_text(
-        f""" """,
+        f"""⚠️ Extra Commands List.
+» /eval - run an code
+» /sh - run an code
+» /sysinfo - show the system information
+» /repo - Get The Bot Repo !!
+» /alive - show the bot alive info (in Group only)
+» /speedtest - run the bot server speedtest
+» /search (query) - search for the youtube video link
+» /ping - show the bot ping status
+» /uptime - show the bot uptime status""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 Go Back", callback_data="command_list")]]
         ),

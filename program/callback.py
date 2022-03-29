@@ -36,9 +36,9 @@ from config import (
 
 @Client.on_callback_query(filters.regex("dm_start"))
 @check_blacklist()
-async def dm_set(_, query: CallbackQuery):
-    await query.answer("Start")
-    await query.edit_message_media(chat_id=update.callback_query.message.chat_id,
+async def method(update,context):
+    image = open('/path/to/image.jpg', 'rb')
+    bot.edit_message_media(chat_id=update.callback_query.message.chat_id,
                                 message_id=update.callback_query.message.message_id, media=InputMediaPhoto(media=image)),
         reply_markup=InlineKeyboardMarkup(
             [

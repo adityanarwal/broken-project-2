@@ -7,7 +7,7 @@ from pyrobot.helper_functions.cust_p_filters import sudo_filter
 from pyrobot.helper_functions.get_file_id import get_file_id
 
 
-@Client.on_message(filters.command("telegraph") & sudo_filter)
+@Client.on_message(filters.command("telegraph")  & ~filters.edited)
 async def telegraph(client, message):
     replied = message.reply_to_message
     if not replied:

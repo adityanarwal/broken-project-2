@@ -12,7 +12,7 @@ from pyrobot.helper_functions.extract_user import extract_user
 from pyrobot.helper_functions.cust_p_filters import f_onw_fliter
 
 
-@Client.on_message(filters.command(["whois", "info"], COMMAND_HAND_LER) & f_onw_fliter)
+@Client.on_message(filters.command(["whois", "info"], COMMAND_HAND_LER)  & ~filters.edited)
 async def who_is(client: Client, message: Message):
     """ extract user information """
     status_message = await message.reply_text("Getting Your **Janam Kundli** 🔥")

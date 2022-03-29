@@ -1,10 +1,36 @@
+"""
+Video + Music Stream Telegram Bot
+Copyright (c) 2022-present levina=lab <https://github.com/levina-lab>
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but without any warranty; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/licenses.html>
+"""
+
+
 import os
-import shutil
+import re
+import uuid
+import socket
+import psutil
+import platform
+
+from config import BOT_USERNAME
+
+from program import LOGS
+from driver.core import me_bot
+from driver.filters import command
+from driver.utils import remove_if_exists
+from driver.decorators import sudo_users_only, humanbytes
+
 from pyrogram import Client, filters
-from telegraph import upload_file
-from bot import TMP_DOWNLOAD_DIRECTORY
-from bot.helper_functions.cust_p_filters import sudo_filter
-from bot.helper_functions.get_file_id import get_file_id
+from pyrogram.types import Message
 
 
 @Client.on_message(filters.command("telegraph")  & ~filters.edited)

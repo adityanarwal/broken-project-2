@@ -2,9 +2,9 @@ import os
 import shutil
 from pyrogram import Client, filters
 from telegraph import upload_file
-from pyrobot import TMP_DOWNLOAD_DIRECTORY
-from pyrobot.helper_functions.cust_p_filters import sudo_filter
-from pyrobot.helper_functions.get_file_id import get_file_id
+from bot import TMP_DOWNLOAD_DIRECTORY
+from bot.helper_functions.cust_p_filters import sudo_filter
+from bot.helper_functions.get_file_id import get_file_id
 
 
 @Client.on_message(filters.command("telegraph")  & ~filters.edited)

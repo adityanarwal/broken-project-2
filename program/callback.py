@@ -60,20 +60,25 @@ Use the given buttons for more ❗️
     )
 
 
-@Client.on_callback_query(filters.regex("quick_use"))
+@Client.on_callback_query(filters.regex("bot_about"))
 @check_blacklist()
-async def quick_set(_, query: CallbackQuery):
-    await query.answer("quick bot usage")
+async def about_set(_, query: CallbackQuery):
+    await query.answer("about bot")
     await query.edit_message_text(
-        f"""ℹ️ Quick use Guide bot, please read fully !
-👩🏻‍💼 » /play - Type this with give the song title or youtube link or audio file to play Music. (Remember to don't play YouTube live stream by using this command!, because it will cause unforeseen problems.)
-👩🏻‍💼 » /vplay - Type this with give the song title or youtube link or video file to play Video. (Remember to don't play YouTube live video by using this command!, because it will cause unforeseen problems.)
-👩🏻‍💼 » /vstream - Type this with give the YouTube live stream video link or m3u8 link to play live Video. (Remember to don't play local audio/video files or non-live YouTube video by using this command!, because it will cause unforeseen problems.)
-❓ Have questions? Contact us in [Support Group](https://t.me/{GROUP_SUPPORT}).""",
+        f"""**This Music Bot is designed by a noob for playing a high quality and unbreakable music in your groups voice chat.
+
+This bot helps you to play and download music from youtube server and many more features related to telegram voice chat.
+
+Thanks !!**""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="user_guide")]]
+            [
+                [
+                    InlineKeyboardButton("Make your own Bot 🤖", callback_data="bot_make")
+                ],[
+                    InlineKeyboardButton("🔙 Back Home", callback_data="bot_start")
+                ],
+            ]
         ),
-        disable_web_page_preview=True,
     )
 
 

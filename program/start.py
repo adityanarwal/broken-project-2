@@ -83,9 +83,8 @@ async def _human_time_duration(seconds):
 async def start_(c: Client, message: Message):
     user_id = message.from_user.id
     await add_served_user(user_id)
-    await message.reply_photo(
-        photo=f"https://telegra.ph/file/50c77a56c2489872836dc.jpg",
-        caption=f"""**Welcome - {message.from_user.mention()} 👋
+    await message.reply_text(
+        f"""**Welcome - {message.from_user.mention()} 👋
 
 This is the Broken music bot, a bot for playing high quality and unbreakable music in your groups voice chat.
 

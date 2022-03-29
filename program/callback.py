@@ -247,6 +247,7 @@ async def extra_set(_, query: CallbackQuery):
 
 » /eval - run an code
 » /sh - run an code
+» /sysinfo - show the system information
 » /repo - Get The Bot Repo !!
 » /alive - show the bot alive info (in Group only)
 » /info - Get Janam Kundli Of the user in Group

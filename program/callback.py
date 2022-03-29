@@ -34,11 +34,11 @@ from config import (
 )
 
 
-@Client.on_callback_query(filters.regex("home_start"))
+@Client.on_callback_query(filters.regex("dm_start"))
 @check_blacklist()
-async def start_set(_, query: CallbackQuery):
-    await query.answer("Home")
-    await query.message.reply_photo(
+async def dm_set(_, query: CallbackQuery):
+    await query.answer("Start")
+    await query.message_reply_photo(
         photo=f"https://telegra.ph/file/50c77a56c2489872836dc.jpg",
         caption=f"""**Welcome - {message.from_user.mention()} 👋
 This is the Broken music bot, a bot for playing high quality and unbreakable music in your groups voice chat.
@@ -82,7 +82,7 @@ async def basic_set(_, query: CallbackQuery):
                 [
                     InlineKeyboardButton("Common Error ×", callback_data="common_error")
                 ],[
-                    InlineKeyboardButton("🔙 Back Home", callback_data="home_start")
+                    InlineKeyboardButton("🔙 Back Home", callback_data="dm_start")
                   ]
             ]
         ),
@@ -104,7 +104,7 @@ Thanks !!**""",
                 [
                     InlineKeyboardButton("Owner Contact❗️", callback_data="contact_owner")
                 ],[
-                    InlineKeyboardButton("🔙 Back Home", callback_data="home_start")
+                    InlineKeyboardButton("🔙 Back Home", callback_data="dm_start")
                   ]
              ] 
         ),
@@ -126,7 +126,7 @@ Thanks !!**""",
                 [
                     InlineKeyboardButton("Make your own Bot 🤖", callback_data="own_bot")
                 ],[
-                    InlineKeyboardButton("🔙 Back Home", callback_data="home_start")
+                    InlineKeyboardButton("🔙 Back Home", callback_data="dm_start")
                 ]
             ]
         ),
@@ -169,7 +169,7 @@ async def contact_set(_, query: CallbackQuery):
 
 Note : Contact developer only that time if you have really need a help or facing any type of issues. Don't try to waste our and your time by asking useless queries !!**""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Back Home", callback_data="home_start")]]
+            [[InlineKeyboardButton("🔙 Back Home", callback_data="dm_start")]]
         ),
     )
 
@@ -189,7 +189,7 @@ async def commands_set(_, query: CallbackQuery):
                 ],[
                     InlineKeyboardButton("Extra 🕹", callback_data="extra_command")
                 ],[
-                    InlineKeyboardButton("🔙 Back Home", callback_data="home_start")
+                    InlineKeyboardButton("🔙 Back Home", callback_data="dm_start")
                 ],
             ]
         ),

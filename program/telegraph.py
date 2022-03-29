@@ -20,7 +20,12 @@ import uuid
 import socket
 import psutil
 import platform
+import shutil
 
+from pyrogram import Client, filters
+import upload_file
+import TMP_DOWNLOAD_DIRECTORY
+import get_file_id
 from config import BOT_USERNAME
 
 from program import LOGS

@@ -94,10 +94,10 @@ Use the given buttons for more ❗️**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Commands❓", callback_data=" "),
-                    InlineKeyboardButton("About❕", callback_data=" ")
+                    InlineKeyboardButton("Commands❓", callback_data="command_list"),
+                    InlineKeyboardButton("About❕", callback_data="bot_about")
                 ],[
-                    InlineKeyboardButton("Basic Guide❔", callback_data=" ")
+                    InlineKeyboardButton("Basic Guide❔", callback_data="basic_guide")
                 ],[
                     InlineKeyboardButton("✚ Add Me To Your Group ✚", url=f"https://t.me/{me_bot.username}?startgroup=true")
                 ],
